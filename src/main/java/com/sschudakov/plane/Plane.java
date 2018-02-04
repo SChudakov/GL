@@ -4,4 +4,5 @@ public interface Plane {
 
     int getFlightRange();
     double getFuelConsumption();
+    String getName();
 }

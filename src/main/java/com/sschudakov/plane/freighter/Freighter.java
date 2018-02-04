@@ -1,8 +1,12 @@
 package com.sschudakov.plane.freighter;
 
 import com.sschudakov.plane.Plane;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public abstract class Freighter implements Plane {
+
+    protected String name;
 
     protected int flightRange;
     protected int fuelConsumption;
@@ -22,7 +26,18 @@ public abstract class Freighter implements Plane {
         return this.carryingCapacity;
     }
 
-    public abstract void loadCargo();
+    @Override
+    public String getName() {
+        return this.name;
+    }
 
-    public abstract void unloadCargo();
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
+                .append(this.name)
+                .append(this.flightRange)
+                .append(this.fuelConsumption)
+                .append(this.carryingCapacity)
+                .toString();
+    }
 }
