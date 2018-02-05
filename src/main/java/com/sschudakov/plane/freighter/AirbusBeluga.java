@@ -1,5 +1,12 @@
 package com.sschudakov.plane.freighter;
 
+/**
+ * Here is defined AeroSpacelinesSuperGuppy
+ * class that stands for the Aero Spacelines
+ * Super Guppy freighter.
+ *
+ * @author Semen Chudakov
+ */
 public class AirbusBeluga extends Freighter {
     public AirbusBeluga() {
         this.name = "Airbus Beluga";

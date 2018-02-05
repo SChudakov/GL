@@ -1,5 +1,13 @@
 package com.sschudakov.plane.airliner;
 
+
+/**
+ * Here is defined BristolBritannia
+ * class that stands for the Bristol
+ * Britannia airliner.
+ *
+ * @author Semen Chudakov
+ */
 public class BristolBritannia extends Airliner {
 
     public BristolBritannia() {

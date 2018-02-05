@@ -1,5 +1,13 @@
 package com.sschudakov.plane.airliner;
 
+
+/**
+ * Here is defined BeechcraftStarship
+ * class that stands for the Beechcraft
+ * Starship airliner.
+ *
+ * @author Semen Chudakov
+ */
 public class BeechcraftStarship extends Airliner {
 
     public BeechcraftStarship() {
