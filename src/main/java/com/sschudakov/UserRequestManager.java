@@ -1,6 +1,6 @@
 package com.sschudakov;
 
-import com.sschudakov.plane.Plane;
+import com.sschudakov.aircraft.Aircraft;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -19,14 +19,13 @@ public class UserRequestManager {
     /**
      * Constants.
      */
-    private static final String TOTAL_CAPACITY = "total capacity: ";
-    private static final String TOTAL_CARRYING_CAPACITY = "total carrying capacity: ";
+    private static final String TOTAL_PASSENGER_CAPACITY = "total passenger capacity: ";
+    private static final String TOTAL_CARGO_CAPACITY = "total cargo capacity: ";
 
     /**
      * An AirlineManager object to which
      * user requests will be delegated.
      */
-    @NotNull
     private AirlineManager airlineManager;
 
 
@@ -64,7 +63,7 @@ public class UserRequestManager {
      * @param to   end point of the span
      * @return list of planes in given fuel consumption span
      */
-    private List<Plane> planesInFuelConsumptionSpan(String from, String to) {
+    private List<Aircraft> planesInFuelConsumptionSpan(String from, String to) {
         double parsedFrom = parseDouble(from);
         double parsedTo = parseDouble(to);
         return this.airlineManager.planesInFuelConsumptionSpan(parsedFrom, parsedTo);
@@ -85,14 +84,14 @@ public class UserRequestManager {
 
     /**
      * Method that forms string that contains about
-     * entire capacity and carrying capacity of all
+     * entire passengerCapacity and carrying passengerCapacity of all
      * airliners and freighters in an airline company
      *
      * @return string with information.
      */
     public String formCapacityInformationString() {
-        return TOTAL_CAPACITY + this.airlineManager.calculateTotalCapacity() + "\n"
-                + TOTAL_CARRYING_CAPACITY + this.airlineManager.calculateTotalCarryingCapacity();
+        return TOTAL_PASSENGER_CAPACITY + this.airlineManager.calculateTotalPassengerCapacity() + "\n"
+                + TOTAL_CARGO_CAPACITY + this.airlineManager.calculateTotalCargoCapacity();
     }
 
 
@@ -113,9 +112,9 @@ public class UserRequestManager {
      * @param list list to be converted
      * @return string with elements of the list
      */
-    private String formStringFromList(List<Plane> list) {
+    private String formStringFromList(List<Aircraft> list) {
         StringBuilder result = new StringBuilder("");
-        for (Plane plane : list) {
+        for (Aircraft plane : list) {
             result.append(plane + "\n");
         }
         return result.deleteCharAt(result.length() - 1).toString();

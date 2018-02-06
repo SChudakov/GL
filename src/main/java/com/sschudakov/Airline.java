@@ -1,10 +1,11 @@
 package com.sschudakov;
 
-import com.sschudakov.plane.airliner.Airliner;
-import com.sschudakov.plane.freighter.Freighter;
+import com.sschudakov.aircraft.Aircraft;
+import com.sschudakov.aircraft.engine.helicopter.Helicopter;
+import com.sschudakov.aircraft.engine.plane.Plane;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 
 /**
@@ -15,43 +16,33 @@ import java.util.Collection;
  * There are getters on the fields.
  * There are also addFreighter() and
  * addAirliner() methods that encapsulate
- * work with freighters and airliners so that
+ * work with aircraft and airliners so that
  * they are not directly accessed from outside.
  *
  * @author Semen Chudakov
  */
 public class Airline {
 
-    private Collection<Freighter> freighters;
-    private Collection<Airliner> airliners;
+    private List<Aircraft> aircraft;
 
     public Airline() {
-        this.freighters = new ArrayList<>();
-        this.airliners = new ArrayList<>();
+        this.aircraft = new ArrayList<>();
     }
 
-    public Collection<Freighter> getFreighters() {
-        return freighters;
-    }
-
-    public Collection<Airliner> getAirliners() {
-        return airliners;
-    }
-
-
-    /**
-     * Methods that enables adding
-     * freighters to an Airline company
-     */
-    public void addFreighter(Freighter freighter) {
-        this.freighters.add(freighter);
+    public List<Aircraft> getAircraft() {
+        return aircraft;
     }
 
     /**
      * Methods that enables adding
-     * airliners to an Airline company
+     * aircraft to an Airline company
      */
-    public void addAirliner(Airliner airliner) {
-        this.airliners.add(airliner);
+    public void addPlane(Plane plane) {
+        this.aircraft.add(plane);
     }
+
+    public void addHelicopter(Helicopter helicopter) {
+        this.aircraft.add(helicopter);
+    }
+
 }

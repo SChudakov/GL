@@ -1,8 +1,8 @@
 package com.sschudakov;
 
-import com.sschudakov.plane.Plane;
-import com.sschudakov.plane.airliner.Airliner;
-import com.sschudakov.plane.freighter.Freighter;
+import com.sschudakov.aircraft.Aircraft;
+import com.sschudakov.aircraft.engine.helicopter.Helicopter;
+import com.sschudakov.aircraft.engine.plane.Plane;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -21,7 +21,6 @@ public class AirlineManager {
     /**
      * An airline company object.
      */
-    @NotNull
     private Airline airline;
 
     /**
@@ -48,36 +47,40 @@ public class AirlineManager {
      * set.
      */
     private void init() {
-        this.airlineBuilder.addAirliners().addFreighters();
+        this.airlineBuilder.addHelicopters().addPlanes();
     }
 
     /**
      * Method that calculates total
-     * carrying capacity of all freighters
+     * carrying passengerCapacity of all freighters
      * in the company.
      *
-     * @return total carrying capacity
+     * @return total carrying passengerCapacity
      */
-    public int calculateTotalCarryingCapacity() {
+    public int calculateTotalCargoCapacity() {
         int result = 0;
-        for (Freighter freighter : this.airline.getFreighters()) {
-            result += freighter.getCarryingCapacity();
+
+        for (Aircraft aircraft : this.airline.getAircraft()) {
+            result += aircraft.getCargoCapacity();
         }
+
         return result;
     }
 
     /**
      * Method that calculates total
-     * capacity of all Airliners
+     * passengerCapacity of all Airliners
      * in the company.
      *
-     * @return total capacity
+     * @return total passengerCapacity
      */
-    public int calculateTotalCapacity() {
+    public int calculateTotalPassengerCapacity() {
         int result = 0;
-        for (Airliner airliner : this.airline.getAirliners()) {
-            result += airliner.getCapacity();
+
+        for (Aircraft aircraft : this.airline.getAircraft()) {
+            result += aircraft.getPassengerCapacity();
         }
+
         return result;
     }
 
@@ -87,16 +90,12 @@ public class AirlineManager {
      *
      * @return sorted list of planes
      */
-    public List<Plane> sortPlanesByFlightRange() {
+    public List<Aircraft> sortPlanesByFlightRange() {
 
-        List<Plane> result = new ArrayList<>();
+        List<Aircraft> result = new ArrayList<>();
 
-        for (Airliner airliner : this.airline.getAirliners()) {
-            result.add(airliner);
-        }
-
-        for (Freighter freighter : this.airline.getFreighters()) {
-            result.add(freighter);
+        for (Aircraft aircraft : this.airline.getAircraft()) {
+            result.add(aircraft);
         }
 
         Collections.sort(result, (o1, o2) -> {
@@ -122,18 +121,14 @@ public class AirlineManager {
      * @param to   end point of span
      * @return list of planes in given fuel consumption span
      */
-    public List<Plane> planesInFuelConsumptionSpan(double from, double to) {
-        List<Plane> result = new ArrayList<>();
-        for (Airliner airliner : this.airline.getAirliners()) {
-            if (airliner.getFuelConsumption() <= to && airliner.getFuelConsumption() >= from) {
-                result.add(airliner);
+    public List<Aircraft> planesInFuelConsumptionSpan(double from, double to) {
+        List<Aircraft> result = new ArrayList<>();
+        for (Aircraft aircraft : this.airline.getAircraft()) {
+            if (aircraft.getFuelConsumption() <= to && aircraft.getFuelConsumption() >= from) {
+                result.add(aircraft);
             }
         }
-        for (Freighter freighter : this.airline.getFreighters()) {
-            if (freighter.getFuelConsumption() <= to && freighter.getFuelConsumption() >= from) {
-                result.add(freighter);
-            }
-        }
+
         return result;
     }
 }
