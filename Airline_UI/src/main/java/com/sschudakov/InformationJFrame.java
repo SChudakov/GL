@@ -227,11 +227,7 @@ public class InformationJFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InformationJFrame(new AirlineManager(new Airline())).setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new InformationJFrame(new AirlineManager(new Airline())).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
