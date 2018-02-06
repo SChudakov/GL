@@ -1,7 +1,7 @@
 package com.sschudakov;
 
+
 import com.sschudakov.aircraft.Aircraft;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 

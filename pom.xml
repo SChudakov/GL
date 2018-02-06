@@ -5,8 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sschudakov</groupId>
-    <artifactId>Airline</artifactId>
+    <artifactId>GLTask</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>Airline</module>
+        <module>Airline_UI</module>
+    </modules>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
