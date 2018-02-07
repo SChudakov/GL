@@ -3,8 +3,8 @@ package com.sschudakov.airline;
 import com.sschudakov.aircraft.Aircraft;
 import com.sschudakov.aircraft.engine.helicopter.Helicopter;
 import com.sschudakov.aircraft.engine.plane.Plane;
-import com.sschudakov.aircraft.engineless.airframe.Airframe;
-import com.sschudakov.aircraft.engineless.balloon.Balloon;
+import com.sschudakov.aircraft.nonengine.airframe.Airframe;
+import com.sschudakov.aircraft.nonengine.balloon.Balloon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Airline {
     private List<Aircraft> aircraft;
 
     /**
-     * Getters on the aircraft field.
+     * Getter on the aircraft field.
      */
     public List<Aircraft> getAircraft() {
         return aircraft;

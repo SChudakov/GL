@@ -1,4 +1,4 @@
-package com.sschudakov.aircraft.engineless;
+package com.sschudakov.aircraft.nonengine;
 
 import com.sschudakov.aircraft.Aircraft;
 import org.apache.commons.lang3.builder.ToStringBuilder;

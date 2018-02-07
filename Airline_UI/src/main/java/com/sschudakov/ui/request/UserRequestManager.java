@@ -56,6 +56,7 @@ public class UserRequestManager {
         );
     }
 
+
     /**
      * Method that validate and convert input
      * by user from and to parameters and
@@ -64,24 +65,50 @@ public class UserRequestManager {
      * @param from begin point of the span
      * @param to   end point of the span
      * @return list of planes in given fuel consumption span
+     * @throws NumberFormatException if the string does not contain a
+     *                               parsable number.
      */
     private List<Aircraft> planesInFuelConsumptionSpan(String from, String to) {
-        double parsedFrom = parseDouble(from);
-        double parsedTo = parseDouble(to);
+        int parsedFrom = parseDouble(from);
+        int parsedTo = parseDouble(to);
+        validateParameters(parsedFrom, parsedTo);
         return this.airlineManager.planesInFuelConsumptionSpan(parsedFrom, parsedTo);
     }
 
     /**
      * Method that converts given string
-     * to a double number.
+     * to a integer number.
      *
-     * @param num
-     * @return
-     * @throws NumberFormatException if the string does not contain a
-     *                               parsable number.
+     * @param num string to be parsed
+     * @return parsed integer number
+     * @throws NumberFormatException    if the string does not contain a
+     *                                  parsable number.
+     * @throws IllegalArgumentException if: either from or to
+     *                                  is less the 0, from is greater than to
      */
-    private double parseDouble(String num) {
-        return Double.valueOf(num);
+    private int parseDouble(String num) {
+        return Integer.valueOf(num);
+    }
+
+    /**
+     * Method that validates parsed endpoints of a span.
+     *
+     * @param from from endpoint of a span
+     * @param to   to endpoint of a span
+     * @throws IllegalArgumentException if: either from or to
+     *                                  is less the 0, from is greater than to
+     */
+    private void validateParameters(int from, int to) {
+        if (from < 0 || to < 0) {
+            throw new IllegalArgumentException("endpoints of an " +
+                    "fuel consumption span cannot be negative");
+        }
+
+        if (from > to) {
+            throw new IllegalArgumentException("in a fuel consumption " +
+                    "span the from endpoint should be less than or " +
+                    "equal to to endpoint");
+        }
     }
 
     /**
@@ -119,6 +146,11 @@ public class UserRequestManager {
         for (Aircraft plane : list) {
             result.append(plane + "\n");
         }
+
+        if (result.toString().length() == 0) {
+            return result.toString();
+        }
+
         return result.deleteCharAt(result.length() - 1).toString();
     }
 

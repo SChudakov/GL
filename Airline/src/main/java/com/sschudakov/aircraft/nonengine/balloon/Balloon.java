@@ -1,55 +1,72 @@
-package com.sschudakov.aircraft.engineless.airframe;
+package com.sschudakov.aircraft.nonengine.balloon;
 
-import com.sschudakov.aircraft.engineless.NonEngineAircraft;
+import com.sschudakov.aircraft.nonengine.NonEngineAircraft;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- * Here is defined a class Airframe
- * that represent an airframe in an
+ * Here is defined a class Balloon
+ * that represent a balloon in an
  * airline company.
  *
  * @author Semen Chudakov
  */
-public class Airframe extends NonEngineAircraft {
+public class Balloon extends NonEngineAircraft {
 
     /**
-     * The airframe class.
-     * In general there are following airframe classes:
-     * "club", "standard", "15-meters", "18-meters",
-     * "world class", "superlight" etc.
+     * The number of bindings in a balloon.
+     * Balloons are usually tied to the ground
+     * so that they cannot simply fly away.
+     * There are also free balloons in which
+     * this number is 0.
      */
-    private String airframeClass;
+    private int numOfBindings;
+
+    /**
+     * The additional freight in kilograms.
+     * Balloons are supplied with certain freight
+     * which cutting off enables them to ascend under
+     * different weather conditions.
+     */
+    private int freight;
 
 
     /**
      * Getters and setters.
      */
-    public String getAirframeClass() {
-        return airframeClass;
+    public int getNumOfBindings() {
+        return numOfBindings;
     }
 
-    public void setAirframeClass(String airframeClass) {
-        this.airframeClass = airframeClass;
+    public void setNumOfBindings(int numOfBindings) {
+        this.numOfBindings = numOfBindings;
+    }
+
+    public int getFreight() {
+        return freight;
+    }
+
+    public void setFreight(int freight) {
+        this.freight = freight;
     }
 
 
     /**
      * The non-arg constructor
      */
-    public Airframe() {
+    protected Balloon() {
     }
 
     /**
      * The constructor that initializes
-     * all fields of an airframe object.
+     * all fields of an balloon object.
      */
-    public Airframe(String name, int flightRange,
-                    int fuelConsumption, int passengerCapacity,
-                    int cargoCapacity, String typeOfDraft,
-                    String airframeClass) {
+    public Balloon(String name, int flightRange, int fuelConsumption, int passengerCapacity,
+                   int cargoCapacity, String typeOfDraft,
+                   int numOfBindings, int freight) {
         super(name, flightRange, fuelConsumption, passengerCapacity, cargoCapacity, typeOfDraft);
-        this.airframeClass = airframeClass;
+        this.numOfBindings = numOfBindings;
+        this.freight = freight;
     }
 
 
@@ -69,18 +86,20 @@ public class Airframe extends NonEngineAircraft {
                 .append("passengerCapacity: " + this.passengerCapacity)
                 .append("carrying passengerCapacity: " + this.cargoCapacity)
                 .append("type of draft: " + this.typeOfDraft)
-                .append("airframe class: " + this.airframeClass)
+                .append("num of bindings: " + this.numOfBindings)
+                .append("freight: " + this.freight)
                 .toString();
     }
 
+
     /**
-     * Here is defined the AirframeBuilder class
+     * Here is defined the BalloonBuilder class
      * that applies the Builder pattern to the
-     * Airframe class.
+     * Balloon class.
      *
      * @author Semen Chudakov
      */
-    public static class AirframeBuilder {
+    public static class BalloonBuilder {
 
         /**
          * Fields to be initialized.
@@ -91,39 +110,45 @@ public class Airframe extends NonEngineAircraft {
         private int passengerCapacity;
         private int cargoCapacity;
         private String typeOfDraft;
-        private String airframeClass;
+        private int numOfBindings;
+        private int freight;
 
 
         /**
          * Setters in Builder template.
          */
-        public Airframe.AirframeBuilder setFlightRange(int flightRange) {
+        public BalloonBuilder setFlightRange(int flightRange) {
             this.flightRange = flightRange;
             return this;
         }
 
-        public Airframe.AirframeBuilder setFuelConsumption(int fuelConsumption) {
+        public BalloonBuilder setFuelConsumption(int fuelConsumption) {
             this.fuelConsumption = fuelConsumption;
             return this;
         }
 
-        public Airframe.AirframeBuilder setPassengerCapacity(int passengerCapacity) {
+        public BalloonBuilder setPassengerCapacity(int passengerCapacity) {
             this.passengerCapacity = passengerCapacity;
             return this;
         }
 
-        public Airframe.AirframeBuilder setCargoCapacity(int cargoCapacity) {
+        public BalloonBuilder setCargoCapacity(int cargoCapacity) {
             this.cargoCapacity = cargoCapacity;
             return this;
         }
 
-        public Airframe.AirframeBuilder setTypeOfDraft(String typeOfDraft) {
+        public BalloonBuilder setTypeOfDraft(String typeOfDraft) {
             this.typeOfDraft = typeOfDraft;
             return this;
         }
 
-        public AirframeBuilder setAirframeClass(String airframeClass) {
-            this.airframeClass = airframeClass;
+        public BalloonBuilder setNumOfBindings(int numOfBindings) {
+            this.numOfBindings = numOfBindings;
+            return this;
+        }
+
+        public BalloonBuilder setFreight(int freight) {
+            this.freight = freight;
             return this;
         }
 
@@ -131,29 +156,29 @@ public class Airframe extends NonEngineAircraft {
         /**
          * Constructor that initializes the name field.
          *
-         * @param name the name of a airframe
+         * @param name the name of a balloon
          */
-        public AirframeBuilder(String name) {
+        public BalloonBuilder(String name) {
             this.name = name;
         }
 
 
         /**
-         * Method that ends building of a airframe.
+         * Method that ends building of a balloon.
          *
-         * @return built airframe
+         * @return built balloon
          */
-        public Airframe build() {
-            Airframe result = new Airframe();
+        public Balloon build() {
+            Balloon result = new Balloon();
             result.setName(name);
             result.setFlightRange(flightRange);
             result.setFuelConsumption(fuelConsumption);
             result.setPassengerCapacity(passengerCapacity);
             result.setCargoCapacity(cargoCapacity);
             result.setTypeOfDraft(typeOfDraft);
-            result.setAirframeClass(airframeClass);
+            result.setNumOfBindings(numOfBindings);
+            result.setFreight(freight);
             return result;
         }
     }
-
 }

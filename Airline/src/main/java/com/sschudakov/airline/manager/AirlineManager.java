@@ -122,7 +122,7 @@ public class AirlineManager {
      * @param to   end point of span
      * @return list of aircraft in given fuel consumption span
      */
-    public List<Aircraft> planesInFuelConsumptionSpan(double from, double to) {
+    public List<Aircraft> planesInFuelConsumptionSpan(int from, int to) {
         List<Aircraft> result = new ArrayList<>();
         for (Aircraft aircraft : this.airline.getAircraft()) {
             if (aircraft.getFuelConsumption() <= to && aircraft.getFuelConsumption() >= from) {
