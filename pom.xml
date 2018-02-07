@@ -47,7 +47,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.sschudakov.ui.InformationJFrame</mainClass>
+                            <mainClass>com.sschudakov.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
