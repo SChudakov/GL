@@ -65,12 +65,21 @@ public class UserRequestManager {
      * @param from begin point of the span
      * @param to   end point of the span
      * @return list of planes in given fuel consumption span
-     * @throws NumberFormatException if the string does not contain a
-     *                               parsable number.
+     * @throws IllegalArgumentException if NumberFormatException is caught.
      */
     private List<Aircraft> planesInFuelConsumptionSpan(String from, String to) {
-        int parsedFrom = parseDouble(from);
-        int parsedTo = parseDouble(to);
+        int parsedFrom = 0;
+        int parsedTo = 0;
+        try {
+            parsedFrom = parseDouble(from);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Illegal format for from endpoint of a span");
+        }
+        try {
+            parsedTo = parseDouble(to);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Illegal format for to endpoint of a span");
+        }
         validateParameters(parsedFrom, parsedTo);
         return this.airlineManager.planesInFuelConsumptionSpan(parsedFrom, parsedTo);
     }
@@ -83,8 +92,6 @@ public class UserRequestManager {
      * @return parsed integer number
      * @throws NumberFormatException    if the string does not contain a
      *                                  parsable number.
-     * @throws IllegalArgumentException if: either from or to
-     *                                  is less the 0, from is greater than to
      */
     private int parseDouble(String num) {
         return Integer.valueOf(num);
@@ -100,12 +107,12 @@ public class UserRequestManager {
      */
     private void validateParameters(int from, int to) {
         if (from < 0 || to < 0) {
-            throw new IllegalArgumentException("endpoints of an " +
+            throw new IllegalArgumentException("Endpoints of a " +
                     "fuel consumption span cannot be negative");
         }
 
         if (from > to) {
-            throw new IllegalArgumentException("in a fuel consumption " +
+            throw new IllegalArgumentException("In a fuel consumption " +
                     "span the from endpoint should be less than or " +
                     "equal to to endpoint");
         }
@@ -151,7 +158,7 @@ public class UserRequestManager {
             return result.toString();
         }
 
-        return result.deleteCharAt(result.length() - 1).toString();
+        return result.substring(0, result.length() - 1);
     }
 
 }

@@ -110,6 +110,6 @@ public abstract class Aircraft {
                 .append("fuel consumption: " + this.fuelConsumption)
                 .append("passengerCapacity: " + this.passengerCapacity)
                 .append("carrying passengerCapacity: " + this.cargoCapacity)
-                .toString();
+                .build();
     }
 }

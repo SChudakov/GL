@@ -47,7 +47,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="calculateJButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="calculateJButton" min="-2" pref="152" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="sortedAircraftJButton" min="-2" pref="117" max="-2" attributes="0"/>
                       </Group>
@@ -63,7 +63,7 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="308" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="319" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -138,7 +138,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="calculateJButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="calculate passengerCapacity"/>
+            <Property name="text" type="java.lang.String" value="calculate total capacity"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calculateJButtonActionPerformed"/>
@@ -146,7 +146,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="sortedAircraftJButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="sorted aircraft"/>
+            <Property name="text" type="java.lang.String" value="sorted aircraft list"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sortedAircraftJButtonActionPerformed"/>

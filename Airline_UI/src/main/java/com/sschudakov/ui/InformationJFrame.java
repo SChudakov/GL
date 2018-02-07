@@ -6,15 +6,13 @@
 package com.sschudakov.ui;
 
 
-import com.sschudakov.ui.request.UserRequestManager;
-import com.sschudakov.airline.Airline;
 import com.sschudakov.airline.manager.AirlineManager;
+import com.sschudakov.ui.request.UserRequestManager;
 
 import javax.swing.JOptionPane;
 import java.awt.HeadlessException;
 
 /**
- *
  * @author Semen
  */
 public class InformationJFrame extends javax.swing.JFrame {
@@ -73,14 +71,14 @@ public class InformationJFrame extends javax.swing.JFrame {
 
         toJLabel.setText("to");
 
-        calculateJButton.setText("calculate passengerCapacity");
+        calculateJButton.setText("calculate total capacity");
         calculateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculateJButtonActionPerformed(evt);
             }
         });
 
-        sortedAircraftJButton.setText("sorted aircraft");
+        sortedAircraftJButton.setText("sorted aircraft list");
         sortedAircraftJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortedAircraftJButtonActionPerformed(evt);
@@ -88,11 +86,7 @@ public class InformationJFrame extends javax.swing.JFrame {
         });
 
         showResultJButton.setText("show result");
-        showResultJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showResultJButtonActionPerformed(evt);
-            }
-        });
+        showResultJButton.addActionListener(evt -> showResultJButtonActionPerformed(evt));
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -106,7 +100,7 @@ public class InformationJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                        .addComponent(calculateJButton)
+                        .addComponent(calculateJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(sortedAircraftJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
@@ -119,7 +113,7 @@ public class InformationJFrame extends javax.swing.JFrame {
                         .addComponent(toJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,10 +190,14 @@ public class InformationJFrame extends javax.swing.JFrame {
      * @param evt event object
      */
     private void showResultJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showResultJButtonActionPerformed
-        this.informationJTextPane.setText(this.userRequestManager.formFittingPlanesInfo(
-                this.fromJTextField.getText(),
-                this.toJTextField.getText()
-        ));
+        try {
+            this.informationJTextPane.setText(this.userRequestManager.formFittingPlanesInfo(
+                    this.fromJTextField.getText(),
+                    this.toJTextField.getText()
+            ));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_showResultJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

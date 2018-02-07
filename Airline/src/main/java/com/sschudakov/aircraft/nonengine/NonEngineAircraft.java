@@ -68,6 +68,6 @@ public class NonEngineAircraft extends Aircraft {
                 .append("passengerCapacity: " + this.passengerCapacity)
                 .append("carrying passengerCapacity: " + this.cargoCapacity)
                 .append("type of draft: " + this.typeOfDraft)
-                .toString();
+                .build();
     }
 }

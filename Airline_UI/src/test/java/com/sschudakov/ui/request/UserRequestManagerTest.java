@@ -161,7 +161,7 @@ public class UserRequestManagerTest {
     /**
      * Method that tests the condition that
      * formFittingPlanesInfo() methods should
-     * throw an NumberFormatException when
+     * throw an IllegalArgumentException when
      * given a span where endpoints have illegal
      * number format.
      *
@@ -172,14 +172,14 @@ public class UserRequestManagerTest {
         try {
             this.userRequestManager.formFittingPlanesInfo("abc", "def");
             throw new AssertionError("method should throw " +
-                    "an NumberFormatException when given a " +
+                    "an IllegalArgumentException when given a " +
                     "span where endpoints have illegal number format");
-        } catch (NumberFormatException e) {
+        } catch (IllegalArgumentException e) {
             /*NOP*/
         } catch (Exception e) {
             e.printStackTrace();
             throw new AssertionError("the method should " +
-                    "throw an NumberFormatException when given a " +
+                    "throw an IllegalArgumentException when given a " +
                     "span where endpoints have illegal number format");
         }
     }

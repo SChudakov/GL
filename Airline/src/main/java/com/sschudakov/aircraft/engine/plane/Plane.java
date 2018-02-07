@@ -54,22 +54,22 @@ public class Plane extends EngineAircraft {
     /**
      * This overridden toString() method
      * considers all field of this class
-     * and uses MULTI_LINE_STYLE as a string style.
+     * and uses SIMPLE_STYLE as a string style.
      *
      * @see ToStringStyle
      */
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("name: " + this.name)
-                .append("flight range: " + this.flightRange)
-                .append("fuel consumption: " + this.fuelConsumption)
-                .append("passengerCapacity: " + this.passengerCapacity)
-                .append("carrying passengerCapacity: " + this.cargoCapacity)
-                .append("hover take off: " + this.hoverTakeoff)
-                .append("engine: " + this.engine)
-                .append("chassis type: " + this.chassisType)
-                .toString();
+        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
+                .append("name: " + this.name + "\n")
+                .append("flight range: " + this.flightRange + "\n")
+                .append("fuel consumption: " + this.fuelConsumption + "\n")
+                .append("passengerCapacity: " + this.passengerCapacity + "\n")
+                .append("carrying passengerCapacity: " + this.cargoCapacity + "\n")
+                .append("hover take off: " + this.hoverTakeoff + "\n")
+                .append("engine: " + this.engine + "\n")
+                .append("chassis type: " + this.chassisType + "\n")
+                .build();
     }
 
     /**

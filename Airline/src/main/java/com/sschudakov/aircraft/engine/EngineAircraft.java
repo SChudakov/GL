@@ -81,6 +81,6 @@ public class EngineAircraft extends Aircraft {
                 .append("carrying passengerCapacity: " + this.cargoCapacity)
                 .append("hover take off: " + this.hoverTakeoff)
                 .append("engine: " + this.engine)
-                .toString();
+                .build();
     }
 }
