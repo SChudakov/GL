@@ -17,8 +17,15 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  */
 public class Helicopter extends EngineAircraft {
 
+    /**
+     * The name of a helicopter rotor.
+     */
     private String helicopterRotor;
 
+
+    /**
+     * Getters and setters.
+     */
     public String getHelicopterRotor() {
         return helicopterRotor;
     }
@@ -28,9 +35,17 @@ public class Helicopter extends EngineAircraft {
 
     }
 
+
+    /**
+     * The non-arg constructor
+     */
     protected Helicopter() {
     }
 
+    /**
+     * The constructor that initializes
+     * all fields of a helicopter object.
+     */
     public Helicopter(String name, int flightRange, int fuelConsumption,
                       int passengerCapacity, int cargoCapacity, boolean hoverTakeoff,
                       String engine, String helicopterRotor) {
@@ -39,6 +54,13 @@ public class Helicopter extends EngineAircraft {
     }
 
 
+    /**
+     * This overridden toString() method
+     * considers all field of this class
+     * and uses MULTI_LINE_STYLE as a string style.
+     *
+     * @see ToStringStyle
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -53,7 +75,18 @@ public class Helicopter extends EngineAircraft {
                 .toString();
     }
 
+    /**
+     * Here is defined the HelicopterBuilder class
+     * that applies the Builder pattern to the
+     * Helicopter class.
+     *
+     * @author Semen Chudakov
+     */
     public static class HelicopterBuilder {
+
+        /**
+         * Fields to be initialized.
+         */
         private String name;
         private int flightRange;
         private int fuelConsumption;
@@ -63,10 +96,10 @@ public class Helicopter extends EngineAircraft {
         private String engine;
         private String helicopterRotor;
 
-        public HelicopterBuilder(String name) {
-            this.name = name;
-        }
 
+        /**
+         * Setters in Builder template.
+         */
         public Helicopter.HelicopterBuilder setFlightRange(int flightRange) {
             this.flightRange = flightRange;
             return this;
@@ -102,6 +135,22 @@ public class Helicopter extends EngineAircraft {
             return this;
         }
 
+
+        /**
+         * Constructor that initializes the name field.
+         *
+         * @param name the name of a helicopter
+         */
+        public HelicopterBuilder(String name) {
+            this.name = name;
+        }
+
+
+        /**
+         * Method that ends building of a helicopter.
+         *
+         * @return built helicopter
+         */
         public Helicopter build() {
             Helicopter result = new Helicopter();
             result.setName(name);

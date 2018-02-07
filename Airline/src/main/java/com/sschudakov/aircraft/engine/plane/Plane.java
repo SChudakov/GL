@@ -6,21 +6,26 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 
 /**
- * Here is defined an abstract class Helicopter
- * that stands for the type of airplanes
- * that deal with passengers transfers.
- * Therefore a field passengerCapacity is added
- * that stands for the maximum amount of
- * people an plane can transfer. Also getter
- * getPassengerCapacity() is added amd method toString()
- * is overridden.
+ * Here is defined a class Plane that
+ * represent a usual plane in an
+ * airline company.
  *
  * @author Semen Chudakov
  */
 public class Plane extends EngineAircraft {
 
+    /**
+     * The chassis type of a plane.
+     * In general there are three chassis types:
+     * "with front wheel", "with back wheel"
+     * and "bicycle".
+     */
     private String chassisType;
 
+
+    /**
+     * Getters and setters.
+     */
     public String getChassisType() {
         return chassisType;
     }
@@ -29,14 +34,30 @@ public class Plane extends EngineAircraft {
         this.chassisType = chassisType;
     }
 
+
+    /**
+     * The non-arg constructor
+     */
     protected Plane() {
     }
 
+    /**
+     * The constructor that initializes
+     * all fields of a plane object.
+     */
     public Plane(String name, int flightRange, int fuelConsumption, int capacity, int carryingCapacity, boolean hoverTakeoff, String engine, String chassisType) {
         super(name, flightRange, fuelConsumption, capacity, carryingCapacity, hoverTakeoff, engine);
         this.chassisType = chassisType;
     }
 
+
+    /**
+     * This overridden toString() method
+     * considers all field of this class
+     * and uses MULTI_LINE_STYLE as a string style.
+     *
+     * @see ToStringStyle
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -51,8 +72,18 @@ public class Plane extends EngineAircraft {
                 .toString();
     }
 
-
+    /**
+     * Here is defined the PlaneBuilder class
+     * that applies the Builder pattern to the
+     * Plane class.
+     *
+     * @author Semen Chudakov
+     */
     public static class PlaneBuilder {
+
+        /**
+         * Fields to be initialized.
+         */
         private String name;
         private int flightRange;
         private int fuelConsumption;
@@ -62,10 +93,10 @@ public class Plane extends EngineAircraft {
         private String engine;
         private String chassisType;
 
-        public PlaneBuilder(String name) {
-            this.name = name;
-        }
 
+        /**
+         * Setters in Builder template.
+         */
         public PlaneBuilder setFlightRange(int flightRange) {
             this.flightRange = flightRange;
             return this;
@@ -101,6 +132,21 @@ public class Plane extends EngineAircraft {
             return this;
         }
 
+
+        /**
+         * Constructor that initializes the name field.
+         *
+         * @param name the name of a plane
+         */
+        public PlaneBuilder(String name) {
+            this.name = name;
+        }
+
+        /**
+         * Method that ends building of a plane.
+         *
+         * @return built plane
+         */
         public Plane build() {
             Plane result = new Plane();
             result.setName(name);

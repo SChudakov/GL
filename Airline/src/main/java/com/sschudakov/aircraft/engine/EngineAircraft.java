@@ -4,11 +4,30 @@ import com.sschudakov.aircraft.Aircraft;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+/**
+ * Here is defined an abstract class
+ * EngineAircraft that represent a specific
+ * type of aircraft that has a built-in engine.
+ *
+ * @author Semen Chudakov
+ */
 public class EngineAircraft extends Aircraft {
 
+    /**
+     * The field that stands for the
+     * ability of an engine aircraft
+     * to take off from a steady position.
+     */
     protected boolean hoverTakeoff;
+    /**
+     * The engine of an engine aircraft.
+     */
     protected String engine;
 
+
+    /**
+     * Getters and setters.
+     */
     public boolean isHoverTakeoff() {
         return hoverTakeoff;
     }
@@ -25,9 +44,17 @@ public class EngineAircraft extends Aircraft {
         this.engine = engine;
     }
 
-    public EngineAircraft() {
+
+    /**
+     * The non-arg constructor
+     */
+    protected EngineAircraft() {
     }
 
+    /**
+     * The constructor that initializes
+     * all fields of an engine aircraft.
+     */
     public EngineAircraft(String name, int flightRange, int fuelConsumption,
                           int passengerCapacity, int cargoCapacity,
                           boolean hoverTakeoff, String engine) {
@@ -36,6 +63,14 @@ public class EngineAircraft extends Aircraft {
         this.engine = engine;
     }
 
+
+    /**
+     * This overridden toString() method
+     * considers all field of this class
+     * and uses MULTI_LINE_STYLE as a string style.
+     *
+     * @see ToStringStyle
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)

@@ -1,14 +1,39 @@
 package com.sschudakov.aircraft.engineless.balloon;
 
-import com.sschudakov.aircraft.engineless.EnginelessAircraft;
+import com.sschudakov.aircraft.engineless.NonEngineAircraft;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class Balloon extends EnginelessAircraft {
+/**
+ * Here is defined a class Balloon
+ * that represent a balloon in an
+ * airline company.
+ *
+ * @author Semen Chudakov
+ */
+public class Balloon extends NonEngineAircraft {
 
+    /**
+     * The number of bindings in a balloon.
+     * Balloons are usually tied to the ground
+     * so that they cannot simply fly away.
+     * There are also free balloons in which
+     * this number is 0.
+     */
     private int numOfBindings;
+
+    /**
+     * The additional freight in kilograms.
+     * Balloons are supplied with certain freight
+     * which cutting off enables them to ascend under
+     * different weather conditions.
+     */
     private int freight;
 
+
+    /**
+     * Getters and setters.
+     */
     public int getNumOfBindings() {
         return numOfBindings;
     }
@@ -26,9 +51,16 @@ public class Balloon extends EnginelessAircraft {
     }
 
 
+    /**
+     * The non-arg constructor
+     */
     protected Balloon() {
     }
 
+    /**
+     * The constructor that initializes
+     * all fields of an balloon object.
+     */
     public Balloon(String name, int flightRange, int fuelConsumption, int passengerCapacity,
                    int cargoCapacity, String typeOfDraft,
                    int numOfBindings, int freight) {
@@ -37,6 +69,14 @@ public class Balloon extends EnginelessAircraft {
         this.freight = freight;
     }
 
+
+    /**
+     * This overridden toString() method
+     * considers all field of this class
+     * and uses MULTI_LINE_STYLE as a string style.
+     *
+     * @see ToStringStyle
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -51,7 +91,19 @@ public class Balloon extends EnginelessAircraft {
                 .toString();
     }
 
+
+    /**
+     * Here is defined the BalloonBuilder class
+     * that applies the Builder pattern to the
+     * Balloon class.
+     *
+     * @author Semen Chudakov
+     */
     public static class BalloonBuilder {
+
+        /**
+         * Fields to be initialized.
+         */
         private String name;
         private int flightRange;
         private int fuelConsumption;
@@ -61,10 +113,10 @@ public class Balloon extends EnginelessAircraft {
         private int numOfBindings;
         private int freight;
 
-        public BalloonBuilder(String name) {
-            this.name = name;
-        }
 
+        /**
+         * Setters in Builder template.
+         */
         public BalloonBuilder setFlightRange(int flightRange) {
             this.flightRange = flightRange;
             return this;
@@ -100,6 +152,22 @@ public class Balloon extends EnginelessAircraft {
             return this;
         }
 
+
+        /**
+         * Constructor that initializes the name field.
+         *
+         * @param name the name of a balloon
+         */
+        public BalloonBuilder(String name) {
+            this.name = name;
+        }
+
+
+        /**
+         * Method that ends building of a balloon.
+         *
+         * @return built balloon
+         */
         public Balloon build() {
             Balloon result = new Balloon();
             result.setName(name);

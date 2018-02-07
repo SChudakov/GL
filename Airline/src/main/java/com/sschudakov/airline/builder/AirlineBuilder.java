@@ -14,6 +14,9 @@ import com.sschudakov.airline.Airline;
  */
 public class AirlineBuilder {
 
+    /**
+     * Parameters of the Boeing 777 plane.
+     */
     private static final String BOEING777_NAME = "Boeing 777";
     private static final int BOEING777_FLIGHT_RANGE = 17_500;
     private static final int BOEING777_FUEL_CONSUMPTION = 6080;
@@ -22,6 +25,9 @@ public class AirlineBuilder {
     private static final boolean BOEING777_HOVER_TAKEOFF = false;
     private static final String BOEING777_ENGINE = "Rolls-Royce Trent 800";
 
+    /**
+     * Parameters of the Boeing 767 plane.
+     */
     private static final String BOEING767_NAME = "Boeing 767";
     private static final int BOEING767_FLIGHT_RANGE = 10_000;
     private static final int BOEING767_FUEL_CONSUMPTION = 4800;
@@ -30,6 +36,9 @@ public class AirlineBuilder {
     private static final boolean BOEING767_HOVER_TAKEOFF = false;
     private static final String BOEING767_ENGINE = "General Electric GE90";
 
+    /**
+     * Parameters of the Boeing 737 plane.
+     */
     private static final String BOEING737_NAME = "Boeing 737";
     private static final int BOEING737_FLIGHT_RANGE = 5_000;
     private static final int BOEING737_FUEL_CONSUMPTION = 2400;
@@ -38,6 +47,9 @@ public class AirlineBuilder {
     private static final boolean BOEING737_HOVER_TAKEOFF = false;
     private static final String BOEING737_ENGINE = "CFMI CFM56-3";
 
+    /**
+     * Parameters of the Boeing CH-47 Chinook helicopter.
+     */
     private static final String CHINOOK_NAME = "Boeing CH-47 Chinook";
     private static final int CHINOOK_FLIGHT_RANGE = 600;
     private static final int CHINOOK_FUEL_CONSUMPTION = 250;
@@ -47,6 +59,9 @@ public class AirlineBuilder {
     private static final String CHINOOK_ENGINE = "Pratt&Whitney PW4000";
     private static final String CHINOOK_ROTOR = "Kopp-Etchells";
 
+    /**
+     * Parameters of the Sikorsky HH-60J Jayhawkk helicopter.
+     */
     private static final String SIKORSKY_NAME = "Sikorsky HH-60J Jayhawk";
     private static final int SIKORSKY_FLIGHT_RANGE = 600;
     private static final int SIKORSKY_FUEL_CONSUMPTION = 380;
@@ -56,19 +71,30 @@ public class AirlineBuilder {
     private static final String SIKORSKY_ENGINE = "Pratt&Whitney PW4000";
     private static final String SIKORSKY_ROTOR = "MH-60R Sea Hawk";
 
+    /**
+     * Types of chassis of a plane
+     */
     private static final String WITH_FRONT_WHEEL_CHASSIS_TYPE = "with front wheel";
     private static final String WITH_BACK_WHEEL_CHASSIS_TYPE = "with back wheel";
+    private static final String BICYCLE_CHASSIS_TYPE = "bicycle";
 
     /**
-     * Field that stands for the
-     * company to be build
+     * The object of an airline
+     * company to be built.
      */
     private Airline airline;
 
+    /**
+     * Getter on the airline field.
+     */
     public Airline getAirline() {
         return airline;
     }
 
+    /**
+     * Constructor that initializes the airline field.
+     * @param airline airline company object to bu built
+     */
     public AirlineBuilder(Airline airline) {
         this.airline = airline;
     }

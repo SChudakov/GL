@@ -1,12 +1,30 @@
 package com.sschudakov.aircraft.engineless.airframe;
 
-import com.sschudakov.aircraft.engineless.EnginelessAircraft;
+import com.sschudakov.aircraft.engineless.NonEngineAircraft;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class Airframe extends EnginelessAircraft {
-    private String airframeClass; // club, standard, 15-meters, 18-meters, superlight
+/**
+ * Here is defined a class Airframe
+ * that represent an airframe in an
+ * airline company.
+ *
+ * @author Semen Chudakov
+ */
+public class Airframe extends NonEngineAircraft {
 
+    /**
+     * The airframe class.
+     * In general there are following airframe classes:
+     * "club", "standard", "15-meters", "18-meters",
+     * "world class", "superlight" etc.
+     */
+    private String airframeClass;
+
+
+    /**
+     * Getters and setters.
+     */
     public String getAirframeClass() {
         return airframeClass;
     }
@@ -15,9 +33,17 @@ public class Airframe extends EnginelessAircraft {
         this.airframeClass = airframeClass;
     }
 
+
+    /**
+     * The non-arg constructor
+     */
     public Airframe() {
     }
 
+    /**
+     * The constructor that initializes
+     * all fields of an airframe object.
+     */
     public Airframe(String name, int flightRange,
                     int fuelConsumption, int passengerCapacity,
                     int cargoCapacity, String typeOfDraft,
@@ -26,6 +52,14 @@ public class Airframe extends EnginelessAircraft {
         this.airframeClass = airframeClass;
     }
 
+
+    /**
+     * This overridden toString() method
+     * considers all field of this class
+     * and uses MULTI_LINE_STYLE as a string style.
+     *
+     * @see ToStringStyle
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -39,8 +73,18 @@ public class Airframe extends EnginelessAircraft {
                 .toString();
     }
 
-
+    /**
+     * Here is defined the AirframeBuilder class
+     * that applies the Builder pattern to the
+     * Airframe class.
+     *
+     * @author Semen Chudakov
+     */
     public static class AirframeBuilder {
+
+        /**
+         * Fields to be initialized.
+         */
         private String name;
         private int flightRange;
         private int fuelConsumption;
@@ -49,10 +93,10 @@ public class Airframe extends EnginelessAircraft {
         private String typeOfDraft;
         private String airframeClass;
 
-        public AirframeBuilder(String name) {
-            this.name = name;
-        }
 
+        /**
+         * Setters in Builder template.
+         */
         public Airframe.AirframeBuilder setFlightRange(int flightRange) {
             this.flightRange = flightRange;
             return this;
@@ -83,6 +127,22 @@ public class Airframe extends EnginelessAircraft {
             return this;
         }
 
+
+        /**
+         * Constructor that initializes the name field.
+         *
+         * @param name the name of a airframe
+         */
+        public AirframeBuilder(String name) {
+            this.name = name;
+        }
+
+
+        /**
+         * Method that ends building of a airframe.
+         *
+         * @return built airframe
+         */
         public Airframe build() {
             Airframe result = new Airframe();
             result.setName(name);

@@ -4,23 +4,39 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- * An interface that represent
- * the aircraft entity of airline.
- * It declares three methods that
- * stand for corresponding properties
- * a aircraft should have: flight range,
- * fuel consumption rate and name
+ * Here is defined an abstract class
+ * Aircraft that represent an aircraft
+ * int an airline company.
  *
  * @author Semen Chudakov
  */
 public abstract class Aircraft {
 
+    /**
+     * The name of an aircraft.
+     */
     protected String name;
+    /**
+     * The flight range rate of an aircraft.
+     */
     protected int flightRange;
+    /**
+     * The fuel consumption rate of an aircraft.
+     */
     protected int fuelConsumption;
+    /**
+     * The passenger capacity rate of an aircraft.
+     */
     protected int passengerCapacity;
+    /**
+     * The cargo capacity rate of an aircraft.
+     */
     protected int cargoCapacity;
 
+
+    /**
+     * Getters amd setters.
+     */
     public String getName() {
         return name;
     }
@@ -61,9 +77,16 @@ public abstract class Aircraft {
         this.cargoCapacity = cargoCapacity;
     }
 
+    /**
+     * The non-arg constructor
+     */
     protected Aircraft() {
     }
 
+    /**
+     * The constructor that initializes
+     * all fields of an aircraft.
+     */
     public Aircraft(String name, int flightRange, int fuelConsumption, int passengerCapacity, int cargoCapacity) {
         this.name = name;
         this.flightRange = flightRange;
@@ -74,8 +97,8 @@ public abstract class Aircraft {
 
     /**
      * This overridden toString() method
-     * considers all five field of this class
-     * and uses SIMPLE_STYLE as a string style.
+     * considers all field of this class
+     * and uses MULTI_LINE_STYLE as a string style.
      *
      * @see ToStringStyle
      */

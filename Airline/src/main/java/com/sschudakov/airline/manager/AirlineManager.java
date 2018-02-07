@@ -9,8 +9,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * This class deals with creating an
- * airline company and providing information
+ * Here is defined the AirlineManager class
+ * that deals with creating an airline
+ * company and providing information
  * about it.
  *
  * @author Semen Chudakov
@@ -29,7 +30,7 @@ public class AirlineManager {
 
     /**
      * Constructor that initializes airline
-     * and airlineBuilder field and does calls init()
+     * and airlineBuilder field and calls init()
      * method.
      *
      * @param airline the company this class should manage
@@ -43,7 +44,8 @@ public class AirlineManager {
     /**
      * Method that does initializations
      * after an airline company object is
-     * set.
+     * set: builds the airline with the help
+     * of airlineBuilder.
      */
     private void init() {
         this.airlineBuilder.addHelicopters().addPlanes();
@@ -51,10 +53,10 @@ public class AirlineManager {
 
     /**
      * Method that calculates total
-     * carrying passengerCapacity of all freighters
+     * cargo capacity of all aircraft
      * in the company.
      *
-     * @return total carrying passengerCapacity
+     * @return total cargo capacity
      */
     public int calculateTotalCargoCapacity() {
         int result = 0;
@@ -68,10 +70,10 @@ public class AirlineManager {
 
     /**
      * Method that calculates total
-     * passengerCapacity of all Airliners
+     * passenger capacity of all aircraft
      * in the company.
      *
-     * @return total passengerCapacity
+     * @return total passenger capacity
      */
     public int calculateTotalPassengerCapacity() {
         int result = 0;
@@ -84,10 +86,10 @@ public class AirlineManager {
     }
 
     /**
-     * Method that sorts all planes in the
+     * Method that sorts all aircraft in the
      * company by their flight range.
      *
-     * @return sorted list of planes
+     * @return sorted list of aircraft
      */
     public List<Aircraft> sortPlanesByFlightRange() {
 
@@ -111,14 +113,14 @@ public class AirlineManager {
     }
 
     /**
-     * Method that selects planes in the
+     * Method that selects aircraft in the
      * given fuel consumption span. Both
      * endpoints of the span are included
      * in the resulting list.
      *
      * @param from begin point of the span
      * @param to   end point of span
-     * @return list of planes in given fuel consumption span
+     * @return list of aircraft in given fuel consumption span
      */
     public List<Aircraft> planesInFuelConsumptionSpan(double from, double to) {
         List<Aircraft> result = new ArrayList<>();

@@ -18,7 +18,8 @@ import java.util.List;
 public class UserRequestManager {
 
     /**
-     * Constants.
+     * Constants that contain strings
+     * used while forming response for the user.
      */
     private static final String TOTAL_PASSENGER_CAPACITY = "total passenger capacity: ";
     private static final String TOTAL_CARGO_CAPACITY = "total cargo capacity: ";
@@ -31,7 +32,7 @@ public class UserRequestManager {
 
 
     /**
-     * Constructor.
+     * Constructor that initializes airlineManager field
      *
      * @param airlineManager AirlineManager object
      */
@@ -108,7 +109,7 @@ public class UserRequestManager {
     }
 
     /**
-     * Method that converts a given list into string.
+     * Method that converts a given list into a string.
      *
      * @param list list to be converted
      * @return string with elements of the list
