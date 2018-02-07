@@ -1,9 +1,8 @@
-package com.sschudakov;
+package com.sschudakov.airline.manager;
 
 import com.sschudakov.aircraft.Aircraft;
-import com.sschudakov.aircraft.engine.helicopter.Helicopter;
-import com.sschudakov.aircraft.engine.plane.Plane;
-import org.jetbrains.annotations.NotNull;
+import com.sschudakov.airline.Airline;
+import com.sschudakov.airline.builder.AirlineBuilder;
 
 import java.util.ArrayList;
 import java.util.Collections;

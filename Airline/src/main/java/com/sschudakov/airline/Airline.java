@@ -1,4 +1,4 @@
-package com.sschudakov;
+package com.sschudakov.airline;
 
 import com.sschudakov.aircraft.Aircraft;
 import com.sschudakov.aircraft.engine.helicopter.Helicopter;

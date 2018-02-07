@@ -1,6 +1,8 @@
 package com.sschudakov.aircraft.engine;
 
 import com.sschudakov.aircraft.Aircraft;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class EngineAircraft extends Aircraft {
 
@@ -32,5 +34,18 @@ public class EngineAircraft extends Aircraft {
         super(name, flightRange, fuelConsumption, passengerCapacity, cargoCapacity);
         this.hoverTakeoff = hoverTakeoff;
         this.engine = engine;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("name: " + this.name)
+                .append("flight range: " + this.flightRange)
+                .append("fuel consumption: " + this.fuelConsumption)
+                .append("passengerCapacity: " + this.passengerCapacity)
+                .append("carrying passengerCapacity: " + this.cargoCapacity)
+                .append("hover take off: " + this.hoverTakeoff)
+                .append("engine: " + this.engine)
+                .toString();
     }
 }

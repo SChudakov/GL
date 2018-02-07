@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sschudakov;
+package com.sschudakov.ui;
 
+
+import com.sschudakov.ui.request.UserRequestManager;
+import com.sschudakov.airline.Airline;
+import com.sschudakov.airline.manager.AirlineManager;
 
 import javax.swing.JOptionPane;
 import java.awt.HeadlessException;

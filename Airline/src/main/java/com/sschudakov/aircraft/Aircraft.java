@@ -81,12 +81,12 @@ public abstract class Aircraft {
      */
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
-                .append("name" + this.name)
-                .append("flight range" + this.flightRange)
-                .append("fuel consumption" + this.fuelConsumption)
-                .append("passengerCapacity" + this.passengerCapacity)
-                .append("carrying passengerCapacity" + this.cargoCapacity)
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("name: " + this.name)
+                .append("flight range: " + this.flightRange)
+                .append("fuel consumption: " + this.fuelConsumption)
+                .append("passengerCapacity: " + this.passengerCapacity)
+                .append("carrying passengerCapacity: " + this.cargoCapacity)
                 .toString();
     }
 }

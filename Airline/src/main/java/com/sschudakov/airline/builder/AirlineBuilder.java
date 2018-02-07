@@ -1,8 +1,9 @@
-package com.sschudakov;
+package com.sschudakov.airline.builder;
 
 
 import com.sschudakov.aircraft.engine.helicopter.Helicopter;
 import com.sschudakov.aircraft.engine.plane.Plane;
+import com.sschudakov.airline.Airline;
 
 /**
  * Here is defined AirlineBuilder class

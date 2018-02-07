@@ -1,6 +1,8 @@
 package com.sschudakov.aircraft.engine.helicopter;
 
 import com.sschudakov.aircraft.engine.EngineAircraft;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 
 /**
@@ -36,6 +38,20 @@ public class Helicopter extends EngineAircraft {
         this.helicopterRotor = helicopterRotor;
     }
 
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("name: " + this.name)
+                .append("flight range: " + this.flightRange)
+                .append("fuel consumption: " + this.fuelConsumption)
+                .append("passengerCapacity: " + this.passengerCapacity)
+                .append("carrying passengerCapacity: " + this.cargoCapacity)
+                .append("hover take off: " + this.hoverTakeoff)
+                .append("engine: " + this.engine)
+                .append("helicopter rotor: " + this.helicopterRotor)
+                .toString();
+    }
 
     public static class HelicopterBuilder {
         private String name;

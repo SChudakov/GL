@@ -1,6 +1,8 @@
 package com.sschudakov.aircraft.engine.plane;
 
 import com.sschudakov.aircraft.engine.EngineAircraft;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 
 /**
@@ -34,6 +36,21 @@ public class Plane extends EngineAircraft {
         super(name, flightRange, fuelConsumption, capacity, carryingCapacity, hoverTakeoff, engine);
         this.chassisType = chassisType;
     }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("name: " + this.name)
+                .append("flight range: " + this.flightRange)
+                .append("fuel consumption: " + this.fuelConsumption)
+                .append("passengerCapacity: " + this.passengerCapacity)
+                .append("carrying passengerCapacity: " + this.cargoCapacity)
+                .append("hover take off: " + this.hoverTakeoff)
+                .append("engine: " + this.engine)
+                .append("chassis type: " + this.chassisType)
+                .toString();
+    }
+
 
     public static class PlaneBuilder {
         private String name;
